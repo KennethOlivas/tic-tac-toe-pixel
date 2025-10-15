@@ -1,0 +1,51 @@
+{
+  "home": {
+    "title": "Pixel TicTacToe",
+    "subtitle": "",
+    "playLocal": "Play Local",
+    "createOnline": "Create Online Game",
+    "joinGame": "Join Game",
+    "enterCode": "Enter game code",
+    "join": "Join",
+    "settings": "Settings"
+  },
+  "game": {
+    "yourTurn": "Your turn",
+    "opponentTurn": "Opponent's turn",
+    "waiting": "Waiting for opponent...",
+    "winner": "{{player}} wins!",
+    "tie": "It's a tie!",
+    "playAgain": "Play Again",
+    "backHome": "Back to Home",
+    "shareLink": "Share Link",
+    "shareCode": "Share Code",
+    "copied": "Copied!",
+    "roomCode": "Room Code"
+  },
+  "room": {
+    "creating": "Creating Room",
+    "created": "Room Created!",
+    "code": "Room Code",
+    "codeCopied": "Code Copied!",
+    "linkCopied": "Link Copied!",
+    "copyCode": "Copy Code",
+    "shareLink": "Share Link",
+    "play": "PLAY",
+    "shareTitle": "Join my TicTacToe game!",
+    "shareText": "Click the link to join my pixel-art TicTacToe game"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "audio": "Sound Effects",
+    "animations": "Animations",
+    "back": "Back"
+  },
+  "errors": {
+    "notFound": "Game not found",
+    "invalidCode": "Invalid game code",
+    "roomFull": "Game room is full",
+    "connectionError": "Connection error",
+    "copyFailed": "Failed to copy"
+  }
+}

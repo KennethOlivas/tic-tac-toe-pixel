@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Pixel-art TicTacToe theme - Exact colors from UI/UX spec */
+:root {
+  /* Updated to exact HEX colors from design specification */
+
+  /* Background colors - Dark browns */
+  --background: #2d1b1b; /* Primary background */
+  --background-secondary: #3b2626; /* Secondary background */
+  --background-shadow: #1b0f0f; /* Shadow */
+  --background-highlight: #4a2e2e; /* Highlight */
+  --foreground: #fff1c1; /* Light cream text */
+
+  /* Board Tiles - Warm tan/beige */
+  --board-primary: #c7a37b;
+  --board-secondary: #b58c65;
+  --board-accent: #e3c598;
+  --board-shadow: #8b5e3c;
+  --board-highlight: #ffe6b3;
+
+  /* Player Colors */
+  --player-x-primary: #f26430; /* Orange/red for X */
+  --player-x-secondary: #d94a1e;
+  --player-x-accent: #ff8c42;
+  --player-x-shadow: #9c2a00;
+  --player-x-highlight: #ffb88a;
+
+  --player-o-primary: #6a9fb5; /* Blue for O */
+  --player-o-secondary: #4b7d91;
+  --player-o-accent: #8cc6d4;
+  --player-o-shadow: #375c69;
+  --player-o-highlight: #b3e4ef;
+
+  /* Buttons - Cream/beige */
+  --button-primary: #efd9a7;
+  --button-secondary: #c8a978;
+  --button-accent: #fff1c1;
+  --button-shadow: #927649;
+  --button-highlight: #fffbe3;
+
+  /* Alerts / Toasts */
+  --toast-info: #d1ecf1;
+  --toast-success: #a6d785;
+  --toast-error: #e07b7b;
+  --toast-warning: #fff3cd;
+  --toast-error-bg: #f8d7da;
+
+  /* Semantic mappings for shadcn components */
+  --card: #3b2626;
+  --card-foreground: #fff1c1;
+  --popover: #3b2626;
+  --popover-foreground: #fff1c1;
+  --primary: #c7a37b;
+  --primary-foreground: #2d1b1b;
+  --secondary: #6a9fb5;
+  --secondary-foreground: #fff1c1;
+  --muted: #4a2e2e;
+  --muted-foreground: #c8a978;
+  --accent: #f26430;
+  --accent-foreground: #fff1c1;
+  --destructive: #e07b7b;
+  --destructive-foreground: #fff1c1;
+  --border: #8b5e3c;
+  --input: #3b2626;
+  --ring: #ffe6b3;
+
+  --radius: 0.125rem; /* Minimal radius for pixel aesthetic */
+
+  /* Sidebar colors */
+  --sidebar: #3b2626;
+  --sidebar-foreground: #fff1c1;
+  --sidebar-primary: #c7a37b;
+  --sidebar-primary-foreground: #2d1b1b;
+  --sidebar-accent: #4a2e2e;
+  --sidebar-accent-foreground: #fff1c1;
+  --sidebar-border: #8b5e3c;
+  --sidebar-ring: #ffe6b3;
+
+  /* Chart colors */
+  --chart-1: #f26430;
+  --chart-2: #6a9fb5;
+  --chart-3: #a6d785;
+  --chart-4: #efd9a7;
+  --chart-5: #8cc6d4;
+}
+
+.dark {
+  /* Dark mode uses same colors as they're already dark-themed */
+  --background: #2d1b1b;
+  --foreground: #fff1c1;
+  --card: #3b2626;
+  --card-foreground: #fff1c1;
+  --popover: #3b2626;
+  --popover-foreground: #fff1c1;
+  --primary: #c7a37b;
+  --primary-foreground: #2d1b1b;
+  --secondary: #6a9fb5;
+  --secondary-foreground: #fff1c1;
+  --muted: #4a2e2e;
+  --muted-foreground: #c8a978;
+  --accent: #f26430;
+  --accent-foreground: #fff1c1;
+  --destructive: #e07b7b;
+  --destructive-foreground: #fff1c1;
+  --border: #8b5e3c;
+  --input: #3b2626;
+  --ring: #ffe6b3;
+}
+
+@theme inline {
+  /* Updated font variables to use pixel-art fonts */
+  --font-pixel: var(--font-pixel);
+  --font-pixel-body: var(--font-pixel-body);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Added custom color mappings for game elements */
+  --color-board-primary: var(--board-primary);
+  --color-board-secondary: var(--board-secondary);
+  --color-board-accent: var(--board-accent);
+  --color-board-shadow: var(--board-shadow);
+  --color-board-highlight: var(--board-highlight);
+
+  --color-player-x-primary: var(--player-x-primary);
+  --color-player-x-secondary: var(--player-x-secondary);
+  --color-player-x-accent: var(--player-x-accent);
+  --color-player-x-shadow: var(--player-x-shadow);
+  --color-player-x-highlight: var(--player-x-highlight);
+
+  --color-player-o-primary: var(--player-o-primary);
+  --color-player-o-secondary: var(--player-o-secondary);
+  --color-player-o-accent: var(--player-o-accent);
+  --color-player-o-shadow: var(--player-o-shadow);
+  --color-player-o-highlight: var(--player-o-highlight);
+
+  --color-button-primary: var(--button-primary);
+  --color-button-secondary: var(--button-secondary);
+  --color-button-accent: var(--button-accent);
+  --color-button-shadow: var(--button-shadow);
+  --color-button-highlight: var(--button-highlight);
+
+  --color-toast-info: var(--toast-info);
+  --color-toast-success: var(--toast-success);
+  --color-toast-error: var(--toast-error);
+  --color-toast-warning: var(--toast-warning);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Sidebar colors */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Chart colors */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    /* Enhanced pixel-perfect rendering with multiple fallbacks */
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Ensure text renders crisply for pixel aesthetic */
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: never;
+  }
+
+  /* Added global image rendering for all images */
+  img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Enhanced pixel-art utilities matching design spec */
+@layer utilities {
+  .pixel-border {
+    box-shadow: 0 0 0 2px currentColor, 0 0 0 4px var(--color-background);
+  }
+
+  .pixel-shadow {
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .pixel-shadow-sm {
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .pixel-pressed {
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transform: translate(2px, 2px);
+  }
+
+  .pixel-glow {
+    box-shadow: 0 0 8px currentColor, 0 0 16px currentColor;
+  }
+
+  /* Enhanced wooden frame with two-tone border system as per spec */
+  .wooden-frame {
+    background: var(--color-board-primary);
+    border: 4px solid var(--color-board-shadow);
+    box-shadow: inset 3px 3px 0 var(--color-board-highlight), inset -3px -3px 0 var(--color-board-shadow), 4px 4px 0
+      rgba(0, 0, 0, 0.4);
+    /* Hard 90° corners - no border radius */
+    border-radius: 0;
+  }
+
+  .parchment-box {
+    background: var(--color-button-primary);
+    border: 2px solid var(--color-button-shadow);
+    box-shadow: inset 1px 1px 0 var(--color-button-highlight), inset -1px -1px 0 var(--color-button-shadow), 3px 3px 0
+      rgba(0, 0, 0, 0.2);
+  }
+}

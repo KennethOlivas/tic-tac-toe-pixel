@@ -1,0 +1,51 @@
+{
+  "home": {
+    "title": "Pixel TicTacToe",
+    "subtitle": "",
+    "playLocal": "Jugar Local",
+    "createOnline": "Crear Partida Online",
+    "joinGame": "Unirse a Partida",
+    "enterCode": "Ingresa el código",
+    "join": "Unirse",
+    "settings": "Configuración"
+  },
+  "game": {
+    "yourTurn": "Tu turno",
+    "opponentTurn": "Turno del oponente",
+    "waiting": "Esperando oponente...",
+    "winner": "¡{{player}} gana!",
+    "tie": "¡Es un empate!",
+    "playAgain": "Jugar de Nuevo",
+    "backHome": "Volver al Inicio",
+    "shareLink": "Compartir Enlace",
+    "shareCode": "Compartir Código",
+    "copied": "¡Copiado!",
+    "roomCode": "Código de Sala"
+  },
+  "room": {
+    "creating": "Creando Sala",
+    "created": "¡Sala Creada!",
+    "code": "Código de Sala",
+    "codeCopied": "¡Código Copiado!",
+    "linkCopied": "¡Enlace Copiado!",
+    "copyCode": "Copiar Código",
+    "shareLink": "Compartir Enlace",
+    "play": "JUGAR",
+    "shareTitle": "¡Únete a mi partida de TicTacToe!",
+    "shareText": "Haz clic en el enlace para unirte a mi partida de TicTacToe pixel-art"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "audio": "Efectos de Sonido",
+    "animations": "Animaciones",
+    "back": "Volver"
+  },
+  "errors": {
+    "notFound": "Partida no encontrada",
+    "invalidCode": "Código de partida inválido",
+    "roomFull": "La sala está llena",
+    "connectionError": "Error de conexión",
+    "copyFailed": "Error al copiar"
+  }
+}
