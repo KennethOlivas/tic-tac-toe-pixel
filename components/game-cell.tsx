@@ -30,7 +30,7 @@ export function GameCell({ value, index, onClick, isWinning, disabled }: GameCel
       opacity: [0, 1, 0.9, 1],
       transition: {
         scale: {
-          type: "spring",
+          type: "spring" as const,
           stiffness: 300,
           damping: 20,
         },
@@ -45,11 +45,6 @@ export function GameCell({ value, index, onClick, isWinning, disabled }: GameCel
   const winningCellVariants = {
     animate: {
       scale: [1, 1.05, 1],
-      boxShadow: [
-        "0 0 0px rgba(199, 163, 123, 0)",
-        "0 0 20px rgba(199, 163, 123, 0.8), 0 0 40px rgba(199, 163, 123, 0.4)",
-        "0 0 0px rgba(199, 163, 123, 0)",
-      ],
     },
   }
 
