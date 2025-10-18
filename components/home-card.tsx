@@ -38,8 +38,8 @@ export function HomeCard() {
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-      <Card className="w-full max-w-md mx-auto pixel-shadow border-4 border-foreground/20 bg-card/95 backdrop-blur">
-        <CardHeader className="text-center space-y-2">
+      <Card className=" max-w-2xl mx-auto pixel-shadow border-4 border-foreground/20 bg-card/95 backdrop-blur w-md">
+        <CardHeader className="text-center space-y-2 ">
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
@@ -67,7 +67,7 @@ export function HomeCard() {
           </motion.div>
 
           {/* Create Online Button */}
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          {/* <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Button
               onClick={handleCreateOnline}
               className="w-full h-14 text-lg font-bold pixel-shadow hover:pixel-pressed transition-all bg-accent text-accent-foreground hover:bg-accent/90"
@@ -75,10 +75,10 @@ export function HomeCard() {
             >
               {t("home.createOnline")}
             </Button>
-          </motion.div>
+          </motion.div> */}
 
           {/* Join Game Section */}
-          <div className="pt-4 border-t-2 border-border space-y-3">
+          {/* <div className="pt-4 border-t-2 border-border space-y-3">
             <Label htmlFor="join-code" className="text-base font-semibold">
               {t("home.joinGame")}
             </Label>
@@ -105,7 +105,7 @@ export function HomeCard() {
                 {t("home.join")}
               </Button>
             </div>
-          </div>
+          </div> */}
         </CardContent>
       </Card>
     </motion.div>
