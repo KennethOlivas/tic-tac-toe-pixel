@@ -2,73 +2,126 @@
 
 import { motion } from "framer-motion"
 
+function PixelSun() {
+  return (
+    <svg
+      width={128}
+      height={128}
+      viewBox="0 0 128 128"
+      className="absolute top-24 right-24 z-10"
+      style={{ imageRendering: "pixelated" }}
+    >
+      <rect x="48" y="48" width="32" height="32" fill="#FFD700" />
+      {/* Rays */}
+      <rect x="60" y="20" width="8" height="16" fill="#FFD700" />
+      <rect x="60" y="92" width="8" height="16" fill="#FFD700" />
+      <rect x="20" y="60" width="16" height="8" fill="#FFD700" />
+      <rect x="92" y="60" width="16" height="8" fill="#FFD700" />
+      <rect x="32" y="32" width="8" height="8" fill="#FFD700" />
+      <rect x="88" y="32" width="8" height="8" fill="#FFD700" />
+      <rect x="32" y="88" width="8" height="8" fill="#FFD700" />
+      <rect x="88" y="88" width="8" height="8" fill="#FFD700" />
+    </svg>
+  )
+}
+
+interface PixelCloudProps {
+  x: string | number
+  y: string | number
+  scale?: number
+  opacity?: number
+  delay?: number
+  duration?: number
+}
+
+function PixelCloud({ x, y, scale = 1, opacity = 1, delay = 0, duration = 60 }: PixelCloudProps) {
+  return (
+    <motion.svg
+      width={96 * scale}
+      height={48 * scale}
+      viewBox="0 0 96 48"
+      className="absolute"
+      style={{
+        left: x,
+        top: y,
+        opacity,
+        imageRendering: "pixelated",
+      }}
+      animate={{
+        x: ["-10%", "110%"],
+      }}
+      transition={{
+        duration,
+        repeat: Number.POSITIVE_INFINITY,
+        ease: "linear",
+        delay,
+      }}
+    >
+      <rect x="16" y="16" width="64" height="16" fill="#fff" />
+      <rect x="0" y="24" width="24" height="8" fill="#fff" />
+      <rect x="72" y="24" width="24" height="8" fill="#fff" />
+      <rect x="32" y="8" width="32" height="8" fill="#fff" />
+    </motion.svg>
+  )
+}
+
+interface PixelGrassProps {
+  x: string | number
+  y: string | number
+  scale?: number
+}
+
+function PixelGrass({ x, y, scale = 1 }: PixelGrassProps) {
+  return (
+    <svg
+      width={32 * scale}
+      height={32 * scale}
+      viewBox="0 0 32 32"
+      className="absolute"
+      style={{
+        left: x,
+        bottom: y,
+        imageRendering: "pixelated",
+      }}
+    >
+      <rect x="12" y="16" width="8" height="16" fill="#228B22" />
+      <rect x="8" y="24" width="4" height="8" fill="#228B22" />
+      <rect x="20" y="24" width="4" height="8" fill="#228B22" />
+      <rect x="16" y="20" width="4" height="12" fill="#32CD32" />
+    </svg>
+  )
+}
+
 export function PixelBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
       {/* Sky gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-game-sky to-background" />
 
-      {/* Animated clouds */}
-      <motion.div
-        className="absolute top-20 left-0 w-32 h-16 bg-white/30 rounded-full blur-sm"
-        animate={{
-          x: ["-10%", "110%"],
-        }}
-        transition={{
-          duration: 60,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-        }}
-      />
-      <motion.div
-        className="absolute top-40 left-0 w-24 h-12 bg-white/20 rounded-full blur-sm"
-        animate={{
-          x: ["-10%", "110%"],
-        }}
-        transition={{
-          duration: 80,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          delay: 10,
-        }}
-      />
-      <motion.div
-        className="absolute top-32 left-0 w-28 h-14 bg-white/25 rounded-full blur-sm"
-        animate={{
-          x: ["-10%", "110%"],
-        }}
-        transition={{
-          duration: 70,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-          delay: 25,
-        }}
-      />
+      {/* Pixel Sun */}
+      <PixelSun />
 
-      {/* Grass layer at bottom with subtle animation */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary to-transparent"
-        animate={{
-          opacity: [0.8, 1, 0.8],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "easeInOut",
-        }}
-      />
+      {/* Pixel Clouds - bigger and more visible */}
+      <PixelCloud x="2%" y="6%" scale={2.2} opacity={0.85} duration={70} />
+      <PixelCloud x="18%" y="14%" scale={1.8} opacity={0.75} delay={10} duration={80} />
+      <PixelCloud x="55%" y="10%" scale={1.5} opacity={0.65} delay={25} duration={90} />
 
-      {/* Floating pixel particles */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {/* Animated pixel squares as particles - bigger */}
+      {Array.from({ length: 30 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-foreground/20 rounded-full"
+          className="absolute"
           style={{
             left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            top: `${Math.random() * 80 + 10}%`,
+            width: `${Math.random() * 8 + 6}px`,
+            height: `${Math.random() * 8 + 6}px`,
+            background: "rgba(0,0,0,0.15)",
+            borderRadius: "2px",
+            imageRendering: "pixelated",
           }}
           animate={{
-            y: [0, -20, 0],
+            y: [0, -40, 0],
             opacity: [0.2, 0.5, 0.2],
           }}
           transition={{
@@ -80,15 +133,24 @@ export function PixelBackground() {
         />
       ))}
 
-      {/* Sun/moon glow */}
+      {/* Pixel Grass Tufts - bigger */}
+      {Array.from({ length: 12 }).map((_, i) => (
+        <PixelGrass
+          key={i}
+          x={`${(i * 8 + Math.random() * 4)}%`}
+          y="0"
+          scale={2 + Math.random() * 0.8}
+        />
+      ))}
+
+      {/* Grass layer at bottom with subtle animation */}
       <motion.div
-        className="absolute top-20 right-20 w-24 h-24 bg-yellow-300/30 rounded-full blur-2xl"
+        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary to-transparent"
         animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
+          opacity: [0.8, 1, 0.8],
         }}
         transition={{
-          duration: 5,
+          duration: 4,
           repeat: Number.POSITIVE_INFINITY,
           ease: "easeInOut",
         }}
